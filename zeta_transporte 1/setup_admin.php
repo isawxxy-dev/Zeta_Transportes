@@ -1,6 +1,5 @@
 <?php
-// Execute este arquivo UMA VEZ no navegador depois de importar database.sql.
-// Depois, apague setup_admin.php por segurança.
+
 require_once 'config.php';
 $username = 'admin';
 $password = password_hash('admin123', PASSWORD_DEFAULT);
