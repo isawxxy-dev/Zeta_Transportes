@@ -1,0 +1,31 @@
+CREATE DATABASE IF NOT EXISTS zeta_transporte
+CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE zeta_transporte;
+
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(60) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS curriculos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(120) NOT NULL,
+    email VARCHAR(150) NOT NULL,
+    telefone VARCHAR(30),
+    cargo VARCHAR(100) NOT NULL,
+    arquivo VARCHAR(255) NOT NULL,
+    enviado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS vendas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    produto VARCHAR(120) NOT NULL,
+    valor DECIMAL(10,2) NOT NULL,
+    forma_pagamento VARCHAR(40),
+    status VARCHAR(30) DEFAULT 'Pendente',
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
