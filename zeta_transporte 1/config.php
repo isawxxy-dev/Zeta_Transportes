@@ -1,9 +1,9 @@
 <?php
-// Conexão com MariaDB usando PDO.
+
 $host = 'localhost';
 $db   = 'zeta_transporte';
 $user = 'root';
-$pass = ''; // Altere se seu MariaDB tiver senha.
+$pass = ''; 
 
 try {
     $pdo = new PDO(
